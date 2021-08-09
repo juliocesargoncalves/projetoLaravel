@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/',[\App\Http\Controllers\PrincipalController::class,'principal']);
+Route::get('/contato',[\App\Http\Controllers\ContatoController::class,'contato']);
+Route::get('/sobrenos',[\App\Http\Controllers\SobreNosController::class,'sobrenos']);
+
+Route::get('/contato/{nome}',function(string $nome){
+    echo "Rota com parâmetros : " . strtoupper($nome);
 });
