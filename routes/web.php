@@ -13,10 +13,41 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[\App\Http\Controllers\PrincipalController::class,'principal']);
+Route::get('/',[\App\Http\Controllers\PrincipalController::class,'principal'])->name('site.index');//Aplicando nome em uma rota
 Route::get('/contato',[\App\Http\Controllers\ContatoController::class,'contato']);
 Route::get('/sobrenos',[\App\Http\Controllers\SobreNosController::class,'sobrenos']);
 
-Route::get('/contato/{nome}',function(string $nome){
-    echo "Rota com parâmetros : " . strtoupper($nome);
+//Agrupamentos de rotas, acessa via localhost:3000/app/nome da rota
+Route::prefix('/app')->group(function(){
+    Route::get('/login', function(){
+        return 'Tela de login';
+    });
+    
+    Route::get('/clientes', function(){
+        return 'Tela de clientes';
+    });
+    
+    Route::get('/fornecedores', function(){
+        return 'Tela de fornecedores';
+    });
+    
+    Route::get('/produtos', function(){
+        return 'Tela de produtos';
+    });
 });
+
+Route::get('/rota1', function(){
+    return 'Rota1';
+})->name('site.rota1');
+
+Route::get('/rota2',function(){
+    return redirect()->route('site.rota1');
+} );
+
+
+
+
+//Rota contato com parametros
+Route::get('/contato/{nome}/{categoria_id}',function(string $nome, int $categoria_id){
+    echo "Rota com parâmetros : " . strtoupper($nome) . " - id passado : " .$categoria_id;
+})->where('categoria_id','[0-9]+')->where('nome','[A-Za-z]+');//expressão regular dizendo que tem ser um parametro inteiro
