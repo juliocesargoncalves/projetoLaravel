@@ -35,14 +35,8 @@ Route::prefix('/app')->group(function(){
         return 'Tela de produtos';
     });
 });
-
-Route::get('/rota1', function(){
-    return 'Rota1';
-})->name('site.rota1');
-
-Route::get('/rota2',function(){
-    return redirect()->route('site.rota1');
-} );
+//Passando parametro para controller atraves da rota
+Route::get('/rota1/{p1}/{p2}',[\App\Http\Controllers\TesteController::class,'teste'])->name('site.rota1');
 
 
 
