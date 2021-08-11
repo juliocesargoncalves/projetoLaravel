@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <title>Super Gestão - Contato</title>
-        <meta charset="utf-8">
+@extends('site.layout.basic')
+@section('content')
 
-        <link rel="stylesheet" type="text/css" href="{{asset('css/style_basic.css')}}" /> 
-    
-    </head>
+@section('title','Super Gestão - Contato')
 
-    <body>
         <div class="topo">
 
             <div class="logo">
@@ -71,5 +65,4 @@
                 <img src="img/mapa.png">
             </div>
         </div>
-    </body>
-</html>
+@endsection

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>Super Gestão - Sobre Nós</title>
+        <title>@yield('title')</title>
         <meta charset="utf-8">
 
-        <link rel="stylesheet" type="text/css" href="{{asset('css/style_basic.css')}}" /> 
+    <link type="text/css" href="{{asset('css/style_basic.css')}}" rel="stylesheet">
     </head>
     <body>
 
-        @yield('conteudo')
+        @yield('content')
 
     </body>
 </html>
