@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[\App\Http\Controllers\PrincipalController::class,'principal'])->name('site.index');//Aplicando nome em uma rota
-Route::get('/contato',[\App\Http\Controllers\ContatoController::class,'contato']);
-Route::get('/sobrenos',[\App\Http\Controllers\SobreNosController::class,'sobrenos']);
+Route::get('/contato',[\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
+Route::get('/sobrenos',[\App\Http\Controllers\SobreNosController::class,'sobrenos'])->name('site.sobrenos');
 
 //Agrupamentos de rotas, acessa via localhost:3000/app/nome da rota
 Route::prefix('/app')->group(function(){
@@ -36,7 +36,7 @@ Route::prefix('/app')->group(function(){
     });
 });
 //Passando parametro para controller atraves da rota
-Route::get('/rota1/{p1}/{p2}',[\App\Http\Controllers\TesteController::class,'teste'])->name('site.rota1');
+Route::get('/rota1',[\App\Http\Controllers\TesteController::class,'teste'])->name('site.rota1');
 
 
 
