@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[\App\Http\Controllers\PrincipalController::class,'principal'])->name('site.index');//Aplicando nome em uma rota
 Route::get('/contato',[\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
+Route::post('/contato',[\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
 Route::get('/sobrenos',[\App\Http\Controllers\SobreNosController::class,'sobrenos'])->name('site.sobrenos');
 
 //Agrupamentos de rotas, acessa via localhost:3000/app/nome da rota

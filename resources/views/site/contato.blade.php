@@ -3,20 +3,7 @@
 
 @section('title','Super Gestão - Contato')
 
-        <div class="topo">
-
-            <div class="logo">
-                <img src="img/logo.png">
-            </div>
-
-            <div class="menu">
-                <ul>
-                    <li><a href="{{ route('site.index') }}">Principal</a></li>
-                    <li><a href="{{ route('site.sobrenos') }}">Sobre Nós</a></li>
-                    <li><a href="{{ route('site.contato') }}">Contato</a></li>
-                </ul>
-            </div>
-        </div>
+    @include('site.layout.menu')
 
         <div class="conteudo-pagina">
             <div class="titulo-pagina">
@@ -25,24 +12,12 @@
 
             <div class="informacao-pagina">
                 <div class="contato-principal">
-                    <form>
-                        <input type="text" placeholder="Nome" class="borda-preta">
-                        <br>
-                        <input type="text" placeholder="Telefone" class="borda-preta">
-                        <br>
-                        <input type="text" placeholder="E-mail" class="borda-preta">
-                        <br>
-                        <select class="borda-preta">
-                            <option value="">Qual o motivo do contato?</option>
-                            <option value="">Dúvida</option>
-                            <option value="">Elogio</option>
-                            <option value="">Reclamação</option>
-                        </select>
-                        <br>
-                        <textarea class="borda-preta">Preencha aqui a sua mensagem</textarea>
-                        <br>
-                        <button type="submit" class="borda-preta">ENVIAR</button>
-                    </form>
+
+                   @component('site.layout.form_contato',['classe'=>'borda-preta'])
+                        <p>A nosssa equipe analisará a sua mensagem e retornaremos o mais brevemente possível!</p>
+                        <p>Nosso tempo médio de resposta é 48 hrs.</p>
+                   @endcomponent
+
                 </div>
             </div>  
         </div>
