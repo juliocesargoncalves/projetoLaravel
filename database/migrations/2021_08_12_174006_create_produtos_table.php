@@ -16,11 +16,11 @@ class CreateProdutosTable extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string('name',100);
-            $table->text('description')->nullable();
-            $table->integer('weight')->nullable();//peso
-            $table->float('sale_price')->default(0.01);
-            $table->integer('minimum_stock')->default(1);//estoque minimo
-            $table->integer('maximum_stock')->default(1);//estque maximo
+            $table->text('descricao')->nullable();
+            $table->decimal('peso', 8,2)->nullable();//peso
+            $table->decimal('preco_venda', 8,2)->default(0.01);
+            $table->integer('estoque_minimo')->default(1);//estoque minimo
+            $table->integer('estoque_maximo')->default(1);//estque maximo
             $table->timestamps();
         });
     }

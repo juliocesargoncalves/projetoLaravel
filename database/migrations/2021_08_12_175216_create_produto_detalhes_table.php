@@ -17,9 +17,9 @@ class CreateProdutoDetalhesTable extends Migration
             $table->id();
             //o tipo do campo da chave estrangeira, deve o mesmo da tabela referência
             $table->unsignedBigInteger('produto_id');
-            $table->float('comprimento',8,2);
-            $table->float('largura',8,2);
-            $table->float('altura',8,2);
+            $table->decimal('comprimento',8,2);
+            $table->decimal('largura',8,2);
+            $table->decimal('altura',8,2);
             $table->timestamps();
 
             //chave estrangeira da tabela produtos
