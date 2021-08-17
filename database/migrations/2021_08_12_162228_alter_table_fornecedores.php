@@ -17,6 +17,7 @@ class AlterTableFornecedores extends Migration
             
             $table->string('uf',2);
             $table->string('email',60);
+            $table->softDeletes();
         });
     }
 

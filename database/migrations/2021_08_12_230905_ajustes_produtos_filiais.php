@@ -25,17 +25,17 @@ class AjustesProdutosFiliais extends Migration
             $table->id();
             $table->unsignedBigInteger('filial_id');
             $table->unsignedBigInteger('produto_id');
-            $table->float('sale_price',8,2);
-            $table->integer('minimum_stock');
-            $table->integer('maximum_stock');
+            $table->decimal('valor_venda',8,2);
+            $table->integer('estoque_minimo')->default(1);
+            $table->integer('estoque_maximo')->default(1);
             $table->timestamps();
             $table->foreign('filial_id')->references('id')->on('filiais');
             $table->foreign('produto_id')->references('id')->on('produtos');
         });
 
-        Schema::table('produtos',function(Blueprint $table){
-            $table->dropColumn(['sale_price','minimum_stock','maximum_stock']);
-        });
+      /*  Schema::table('produtos',function(Blueprint $table){
+            $table->dropColumn(['preco_venda','estoque_minimo','estoque_maximo']);
+        });*/
     }
 
     /**
@@ -45,11 +45,11 @@ class AjustesProdutosFiliais extends Migration
      */
     public function down()
     {
-        Schema::table('produtos',function(Blueprint $table){
-            $table->float('sale_price',8,2);
-            $table->integer('minimum_stock');
-            $table->integer('maximum_stock');
-        });
+       /* Schema::table('produtos',function(Blueprint $table){
+            $table->decimal('preco_venda',8,2);
+            $table->integer('estoque_minimo');
+            $table->integer('estoque_maximo');
+        });*/
 
         Schema::dropIfExists('produto_filiais');
         Schema::dropIfExists('filiais');
