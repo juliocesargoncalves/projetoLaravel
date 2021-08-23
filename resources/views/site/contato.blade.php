@@ -5,6 +5,8 @@
 
     @include('site.layout.menu')
 
+  
+
         <div class="conteudo-pagina">
             <div class="titulo-pagina">
                 <h1>Entre em contato conosco</h1>
@@ -13,7 +15,7 @@
             <div class="informacao-pagina">
                 <div class="contato-principal">
 
-                   @component('site.layout.form_contato',['classe'=>'borda-preta'])
+                   @component('site.layout.form_contato',['classe'=>'borda-preta', 'motivo' => $motivo])
                         <p>A nosssa equipe analisará a sua mensagem e retornaremos o mais brevemente possível!</p>
                         <p>Nosso tempo médio de resposta é 48 hrs.</p>
                    @endcomponent
