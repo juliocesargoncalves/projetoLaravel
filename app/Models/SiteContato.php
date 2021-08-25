@@ -12,7 +12,7 @@ class SiteContato extends Model
     use SoftDeletes;
     
     protected $table = 'site_contatos';
-    protected $fillable = ['name','telefone','email','motivo_id','mensagem'];
+    protected $fillable = ['nome','telefone','email','motivo_id','mensagem'];
 
 
    

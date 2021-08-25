@@ -193,3 +193,13 @@ button:hover {
     margin: 0px 15px 0px 15px;
 }
 
+/*Formata mensagem de erro*/
+
+.msg-erro{
+    background:red; 
+    color:#fff; text-align:center; 
+    border: 1px solid #000; 
+    border-radius:3px; 
+    padding:10px 15px;
+    font-weight: bold;
+}

@@ -19,23 +19,37 @@ class ContatoController extends Controller{
 
        $request->validate(
         [
-
-           'nome' => 'required|min:3|max:50',
-           'telefone' => 'required',
-           'email' => 'required|email',
-           'motivo_id' => 'required',
-           'mensagem' => 'required'
+            'nome' => 'required|min:3|max:50|unique:site_contatos',
+            'telefone' => 'required|unique:site_contatos',
+            'email' => 'required|email|unique:site_contatos',
+            'motivo_id' => 'required',
+            'mensagem' => 'required'
         ],
+
         [
-            'nome.required' => 'Esse campo e obrigatório',
-            'nome.min' => 'O campo nome dever ter no minimo 3 caracteres'
+            'required' => 'O campo :attribute é obrigatório',
+            //'nome.required' => 'O Campo nome é obrigatório',
+            'nome.min' => 'O campo nome dever ter no minimo 3 caracteres',
+            'nome.max' => 'O campo nome deve ter no maximo 50 caracteres',
+            'nome.unique' => 'Esse nome já existe no banco de dados',
+
+            //'telefone.required' => 'O Campo telefone e obrigatório',
+            'telefone.unique' => 'Telefone já cadastrado, por favor insira outro telefone',
+
+            //'email.required' => 'O campo e-mail e obrigatório',
+            'email.unique' => 'E-mail já cadastrado, por favor insira outro e-mail',
+
+            'motivo_id.required' => 'É obrigatório selecionar uma alternativa',
+
+           // 'mensagem.required' => 'Necessário escrever a mesangem desejada'
+            
         ]);
 
       // SiteContato::create($request->all());
       
 
        $contato = new SiteContato();
-       $contato->name = $request->input('nome');
+       $contato->nome = $request->input('nome');
        $contato->telefone = $request->input('telefone');
        $contato->email = $request->input('email');
        $contato->motivo_id = $request->input('motivo_id');
