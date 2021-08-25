@@ -19,9 +19,14 @@ class CreateSiteContatosTable extends Migration
             $table->string('name', 50);
             $table->string('telefone',30);
             $table->string('email',50);
-            $table->integer('motivo');
+            $table->integer('motivo_id');
             $table->text('mensagem');
             $table->timestamps();
+            $table->foreign('motivo_id')->references('id')->on('motivo_contatos');
+        });
+
+        Schema::table('site_contatos', function(Blueprint $table){
+            $table->unsignedBigInteger('motivo_id');
         });
     }
 
