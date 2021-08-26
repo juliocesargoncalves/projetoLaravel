@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\ValidaTokenMiddleware;
 use App\Models\MotivoContato;
 use App\Models\SiteContato;
 use Illuminate\Http\Request;
 
 class ContatoController extends Controller{
 
-    public function contato(){
-        $motivo = MotivoContato::all();
+    public function __construct()
+    {
+        
+     
+    }
 
+    public function contato(){
+
+        $motivo = MotivoContato::all();
         $titulo = 'Formulario de contato';
         return view('site.contato', ['titulo' => $titulo, 'motivo'=> $motivo]);
     }
